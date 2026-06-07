@@ -34,6 +34,12 @@ class _HomeScreenState extends State<HomeScreen> {
               text: 'Lista de Produtos',
               onClick: () => context.push(AppRoutesNames.listaProdutos),
             ),
+            SizedBox(height: 16),
+
+            CustomButtomComponent(
+              text: 'Lista de Grades',
+              onClick: () => context.push(AppRoutesNames.listaGrades),
+            ),
           ],
         ),
       ),

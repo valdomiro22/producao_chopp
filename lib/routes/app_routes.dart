@@ -4,6 +4,9 @@ import 'package:producao_chopp/features/barril/presentation/screens/listabarris/
 import 'package:producao_chopp/home_screen.dart';
 import '../features/barril/presentation/screens/adicionarbarril/adicionar_barril_screen.dart';
 import '../features/barril/presentation/screens/editarbarril/editar_barril_screen.dart';
+import '../features/grade/presentation/screens/adicionargrade/adicionar_grade_screen.dart';
+import '../features/grade/presentation/screens/editargrade/editar_grade_screen.dart';
+import '../features/grade/presentation/screens/listagrades/lista_grades_screen.dart';
 import '../features/produto/presentation/screens/adicionarproduto/adicionar_produto_screen.dart';
 import '../features/produto/presentation/screens/editarproduto/editar_produto_screen.dart';
 import '../features/produto/presentation/screens/listaprodutos/lista_produtos_screen.dart';
@@ -59,23 +62,23 @@ class AppRoutes {
       },
     ),
 
-    // // Grade
-    // GoRoute(path: AppRoutesNames.listaGrades, builder: (context, state) => ListaGradesScreen()),
-    //
-    // GoRoute(
-    //   path: AppRoutesNames.adicionarGrade,
-    //   builder: (context, state) => AdicionarGradeScreen(),
-    // ),
-    //
-    // GoRoute(
-    //   path: '${AppRoutesNames.editarGrade}/:gradeId',
-    //   builder: (context, state) {
-    //     final gradeId = state.pathParameters['gradeId']!;
-    //
-    //     return EditarGradeScreen(gradeId: gradeId);
-    //   },
-    // ),
-    //
+    // Grade
+    GoRoute(path: AppRoutesNames.listaGrades, builder: (context, state) => ListaGradesScreen()),
+
+    GoRoute(
+      path: AppRoutesNames.adicionarGrade,
+      builder: (context, state) => AdicionarGradeScreen(),
+    ),
+
+    GoRoute(
+      path: '${AppRoutesNames.editarGrade}/:gradeId',
+      builder: (context, state) {
+        final gradeId = state.pathParameters['gradeId']!;
+
+        return EditarGradeScreen(gradeId: gradeId);
+      },
+    ),
+
     // // Produção
     // GoRoute(
     //   path: '${AppRoutesNames.listaProducoes}/:gradeId',

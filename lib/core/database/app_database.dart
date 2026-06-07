@@ -2,6 +2,7 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../../features/barril/data/database/tabela_barril.dart';
+import '../../features/grade/data/database/tabela_grade.dart';
 import '../../features/produto/data/database/tabela_produto.dart';
 
 class AppDatabase {
@@ -29,7 +30,7 @@ class AppDatabase {
   Future<void> _onCreate(Database db, int version) async {
     await db.execute(TabelaBarril.createTable);
     await db.execute(TabelaProduto.createTable);
-    // await db.execute(TabelaGrade.createTable);
+    await db.execute(TabelaGrade.createTable);
     // await db.execute(TabelaProducao.createTable);
     // await db.execute(TabelaMovimentacao.createTable);
   }
