@@ -42,7 +42,7 @@ final class EditarBarrilNotifierProvider
 }
 
 String _$editarBarrilNotifierHash() =>
-    r'ed731abec2288642a1e8c449c841bcf5f058754d';
+    r'28e8b2116b67a92636145577bc293f87be9c01e4';
 
 abstract class _$EditarBarrilNotifier extends $Notifier<EditarBarrilState> {
   EditarBarrilState build();

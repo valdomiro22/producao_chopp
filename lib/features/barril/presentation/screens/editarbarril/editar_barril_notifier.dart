@@ -19,7 +19,7 @@ class EditarBarrilNotifier extends _$EditarBarrilNotifier {
   Future<void> buscarBarril(String barrilId) async {
     final useCase = ref.read(getOneBarrilUseCaseProvider);
 
-    state = state.copyWith(isLoading: true, erroGeral: null, isSucess: false);
+    state = state.copyWith(isLoading: true, erroGeral: null, isSuccess: false);
 
     final result = await useCase(barrilId);
     result.fold(
@@ -62,7 +62,7 @@ class EditarBarrilNotifier extends _$EditarBarrilNotifier {
       return;
     }
 
-    state = state.copyWith(isLoading: true, erroGeral: null, isSucess: false);
+    state = state.copyWith(isLoading: true, erroGeral: null, isSuccess: false);
 
     final params = UpdateBarrilParams(
       nome: state.nome.trim(),
@@ -77,11 +77,11 @@ class EditarBarrilNotifier extends _$EditarBarrilNotifier {
 
     result.fold(
       (failure) {
-        state = state.copyWith(isLoading: false, erroGeral: failure.message, isSucess: false);
+        state = state.copyWith(isLoading: false, erroGeral: failure.message, isSuccess: false);
       },
       (_) {
         ref.invalidate(listaBarrisProvider);
-        state = state.copyWith(isLoading: false, isSucess: true);
+        state = state.copyWith(isLoading: false, isSuccess: true);
       },
     );
   }
@@ -121,7 +121,7 @@ sealed class EditarBarrilState with _$EditarBarrilState {
     String? erroNome,
     String? erroVolume,
     @Default(false) bool isLoading,
-    @Default(false) bool isSucess,
+    @Default(false) bool isSuccess,
     @Default(false) bool isCamposValidos,
   }) = _EditarBarrilState;
 

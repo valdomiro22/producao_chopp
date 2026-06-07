@@ -25,7 +25,7 @@ class _AdicionarBarrilScreenState extends ConsumerState<AdicionarBarrilScreen> {
   @override
   Widget build(BuildContext context) {
     ref.listen(adicionarBarrilProvider, (previous, next) {
-      if (next.isSucess) {
+      if (next.isSuccess) {
         ref.read(adicionarBarrilProvider.notifier).limpar();
 
         if (context.canPop()) {

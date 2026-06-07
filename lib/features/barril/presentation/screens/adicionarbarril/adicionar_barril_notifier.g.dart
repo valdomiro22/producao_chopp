@@ -42,7 +42,7 @@ final class AdicionarBarrilNotifierProvider
 }
 
 String _$adicionarBarrilNotifierHash() =>
-    r'5fe0b86015fcbfdf178969e269d61d4cd7b41ffb';
+    r'd41f42ce6f980b6aa1d2c6785c73ca5139c2c502';
 
 abstract class _$AdicionarBarrilNotifier
     extends $Notifier<AdicionarBarrilState> {

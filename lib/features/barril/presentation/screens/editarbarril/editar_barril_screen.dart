@@ -45,7 +45,7 @@ class _EditarBarrilScreenState extends ConsumerState<EditarBarrilScreen> {
         _volumeController.text = next.volume;
       }
 
-      if (next.isSucess) {
+      if (next.isSuccess) {
         ref.read(editarBarrilProvider.notifier).limpar();
 
         if (context.canPop()) {

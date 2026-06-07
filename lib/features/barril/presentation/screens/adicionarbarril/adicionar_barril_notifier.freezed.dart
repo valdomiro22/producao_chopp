@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AdicionarBarrilState {
 
- String get nome; String get volume; bool get isDescartavel; String? get erroGeral; String? get erroNome; String? get erroVolume; bool get isLoading; bool get isSucess; bool get isCamposValidos;
+ String get nome; String get volume; bool get isDescartavel; String? get erroGeral; String? get erroNome; String? get erroVolume; bool get isLoading; bool get isSuccess; bool get isCamposValidos;
 /// Create a copy of AdicionarBarrilState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $AdicionarBarrilStateCopyWith<AdicionarBarrilState> get copyWith => _$AdicionarB
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AdicionarBarrilState&&(identical(other.nome, nome) || other.nome == nome)&&(identical(other.volume, volume) || other.volume == volume)&&(identical(other.isDescartavel, isDescartavel) || other.isDescartavel == isDescartavel)&&(identical(other.erroGeral, erroGeral) || other.erroGeral == erroGeral)&&(identical(other.erroNome, erroNome) || other.erroNome == erroNome)&&(identical(other.erroVolume, erroVolume) || other.erroVolume == erroVolume)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isSucess, isSucess) || other.isSucess == isSucess)&&(identical(other.isCamposValidos, isCamposValidos) || other.isCamposValidos == isCamposValidos));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AdicionarBarrilState&&(identical(other.nome, nome) || other.nome == nome)&&(identical(other.volume, volume) || other.volume == volume)&&(identical(other.isDescartavel, isDescartavel) || other.isDescartavel == isDescartavel)&&(identical(other.erroGeral, erroGeral) || other.erroGeral == erroGeral)&&(identical(other.erroNome, erroNome) || other.erroNome == erroNome)&&(identical(other.erroVolume, erroVolume) || other.erroVolume == erroVolume)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isSuccess, isSuccess) || other.isSuccess == isSuccess)&&(identical(other.isCamposValidos, isCamposValidos) || other.isCamposValidos == isCamposValidos));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,nome,volume,isDescartavel,erroGeral,erroNome,erroVolume,isLoading,isSucess,isCamposValidos);
+int get hashCode => Object.hash(runtimeType,nome,volume,isDescartavel,erroGeral,erroNome,erroVolume,isLoading,isSuccess,isCamposValidos);
 
 @override
 String toString() {
-  return 'AdicionarBarrilState(nome: $nome, volume: $volume, isDescartavel: $isDescartavel, erroGeral: $erroGeral, erroNome: $erroNome, erroVolume: $erroVolume, isLoading: $isLoading, isSucess: $isSucess, isCamposValidos: $isCamposValidos)';
+  return 'AdicionarBarrilState(nome: $nome, volume: $volume, isDescartavel: $isDescartavel, erroGeral: $erroGeral, erroNome: $erroNome, erroVolume: $erroVolume, isLoading: $isLoading, isSuccess: $isSuccess, isCamposValidos: $isCamposValidos)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $AdicionarBarrilStateCopyWith<$Res>  {
   factory $AdicionarBarrilStateCopyWith(AdicionarBarrilState value, $Res Function(AdicionarBarrilState) _then) = _$AdicionarBarrilStateCopyWithImpl;
 @useResult
 $Res call({
- String nome, String volume, bool isDescartavel, String? erroGeral, String? erroNome, String? erroVolume, bool isLoading, bool isSucess, bool isCamposValidos
+ String nome, String volume, bool isDescartavel, String? erroGeral, String? erroNome, String? erroVolume, bool isLoading, bool isSuccess, bool isCamposValidos
 });
 
 
@@ -62,7 +62,7 @@ class _$AdicionarBarrilStateCopyWithImpl<$Res>
 
 /// Create a copy of AdicionarBarrilState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? nome = null,Object? volume = null,Object? isDescartavel = null,Object? erroGeral = freezed,Object? erroNome = freezed,Object? erroVolume = freezed,Object? isLoading = null,Object? isSucess = null,Object? isCamposValidos = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? nome = null,Object? volume = null,Object? isDescartavel = null,Object? erroGeral = freezed,Object? erroNome = freezed,Object? erroVolume = freezed,Object? isLoading = null,Object? isSuccess = null,Object? isCamposValidos = null,}) {
   return _then(_self.copyWith(
 nome: null == nome ? _self.nome : nome // ignore: cast_nullable_to_non_nullable
 as String,volume: null == volume ? _self.volume : volume // ignore: cast_nullable_to_non_nullable
@@ -71,7 +71,7 @@ as bool,erroGeral: freezed == erroGeral ? _self.erroGeral : erroGeral // ignore:
 as String?,erroNome: freezed == erroNome ? _self.erroNome : erroNome // ignore: cast_nullable_to_non_nullable
 as String?,erroVolume: freezed == erroVolume ? _self.erroVolume : erroVolume // ignore: cast_nullable_to_non_nullable
 as String?,isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
-as bool,isSucess: null == isSucess ? _self.isSucess : isSucess // ignore: cast_nullable_to_non_nullable
+as bool,isSuccess: null == isSuccess ? _self.isSuccess : isSuccess // ignore: cast_nullable_to_non_nullable
 as bool,isCamposValidos: null == isCamposValidos ? _self.isCamposValidos : isCamposValidos // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
@@ -155,10 +155,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String nome,  String volume,  bool isDescartavel,  String? erroGeral,  String? erroNome,  String? erroVolume,  bool isLoading,  bool isSucess,  bool isCamposValidos)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String nome,  String volume,  bool isDescartavel,  String? erroGeral,  String? erroNome,  String? erroVolume,  bool isLoading,  bool isSuccess,  bool isCamposValidos)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AdicionarBarrilState() when $default != null:
-return $default(_that.nome,_that.volume,_that.isDescartavel,_that.erroGeral,_that.erroNome,_that.erroVolume,_that.isLoading,_that.isSucess,_that.isCamposValidos);case _:
+return $default(_that.nome,_that.volume,_that.isDescartavel,_that.erroGeral,_that.erroNome,_that.erroVolume,_that.isLoading,_that.isSuccess,_that.isCamposValidos);case _:
   return orElse();
 
 }
@@ -176,10 +176,10 @@ return $default(_that.nome,_that.volume,_that.isDescartavel,_that.erroGeral,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String nome,  String volume,  bool isDescartavel,  String? erroGeral,  String? erroNome,  String? erroVolume,  bool isLoading,  bool isSucess,  bool isCamposValidos)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String nome,  String volume,  bool isDescartavel,  String? erroGeral,  String? erroNome,  String? erroVolume,  bool isLoading,  bool isSuccess,  bool isCamposValidos)  $default,) {final _that = this;
 switch (_that) {
 case _AdicionarBarrilState():
-return $default(_that.nome,_that.volume,_that.isDescartavel,_that.erroGeral,_that.erroNome,_that.erroVolume,_that.isLoading,_that.isSucess,_that.isCamposValidos);}
+return $default(_that.nome,_that.volume,_that.isDescartavel,_that.erroGeral,_that.erroNome,_that.erroVolume,_that.isLoading,_that.isSuccess,_that.isCamposValidos);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -193,10 +193,10 @@ return $default(_that.nome,_that.volume,_that.isDescartavel,_that.erroGeral,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String nome,  String volume,  bool isDescartavel,  String? erroGeral,  String? erroNome,  String? erroVolume,  bool isLoading,  bool isSucess,  bool isCamposValidos)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String nome,  String volume,  bool isDescartavel,  String? erroGeral,  String? erroNome,  String? erroVolume,  bool isLoading,  bool isSuccess,  bool isCamposValidos)?  $default,) {final _that = this;
 switch (_that) {
 case _AdicionarBarrilState() when $default != null:
-return $default(_that.nome,_that.volume,_that.isDescartavel,_that.erroGeral,_that.erroNome,_that.erroVolume,_that.isLoading,_that.isSucess,_that.isCamposValidos);case _:
+return $default(_that.nome,_that.volume,_that.isDescartavel,_that.erroGeral,_that.erroNome,_that.erroVolume,_that.isLoading,_that.isSuccess,_that.isCamposValidos);case _:
   return null;
 
 }
@@ -208,7 +208,7 @@ return $default(_that.nome,_that.volume,_that.isDescartavel,_that.erroGeral,_tha
 
 
 class _AdicionarBarrilState implements AdicionarBarrilState {
-  const _AdicionarBarrilState({this.nome = '', this.volume = '', this.isDescartavel = false, this.erroGeral, this.erroNome, this.erroVolume, this.isLoading = false, this.isSucess = false, this.isCamposValidos = false});
+  const _AdicionarBarrilState({this.nome = '', this.volume = '', this.isDescartavel = false, this.erroGeral, this.erroNome, this.erroVolume, this.isLoading = false, this.isSuccess = false, this.isCamposValidos = false});
   
 
 @override@JsonKey() final  String nome;
@@ -218,7 +218,7 @@ class _AdicionarBarrilState implements AdicionarBarrilState {
 @override final  String? erroNome;
 @override final  String? erroVolume;
 @override@JsonKey() final  bool isLoading;
-@override@JsonKey() final  bool isSucess;
+@override@JsonKey() final  bool isSuccess;
 @override@JsonKey() final  bool isCamposValidos;
 
 /// Create a copy of AdicionarBarrilState
@@ -231,16 +231,16 @@ _$AdicionarBarrilStateCopyWith<_AdicionarBarrilState> get copyWith => __$Adicion
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AdicionarBarrilState&&(identical(other.nome, nome) || other.nome == nome)&&(identical(other.volume, volume) || other.volume == volume)&&(identical(other.isDescartavel, isDescartavel) || other.isDescartavel == isDescartavel)&&(identical(other.erroGeral, erroGeral) || other.erroGeral == erroGeral)&&(identical(other.erroNome, erroNome) || other.erroNome == erroNome)&&(identical(other.erroVolume, erroVolume) || other.erroVolume == erroVolume)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isSucess, isSucess) || other.isSucess == isSucess)&&(identical(other.isCamposValidos, isCamposValidos) || other.isCamposValidos == isCamposValidos));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AdicionarBarrilState&&(identical(other.nome, nome) || other.nome == nome)&&(identical(other.volume, volume) || other.volume == volume)&&(identical(other.isDescartavel, isDescartavel) || other.isDescartavel == isDescartavel)&&(identical(other.erroGeral, erroGeral) || other.erroGeral == erroGeral)&&(identical(other.erroNome, erroNome) || other.erroNome == erroNome)&&(identical(other.erroVolume, erroVolume) || other.erroVolume == erroVolume)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isSuccess, isSuccess) || other.isSuccess == isSuccess)&&(identical(other.isCamposValidos, isCamposValidos) || other.isCamposValidos == isCamposValidos));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,nome,volume,isDescartavel,erroGeral,erroNome,erroVolume,isLoading,isSucess,isCamposValidos);
+int get hashCode => Object.hash(runtimeType,nome,volume,isDescartavel,erroGeral,erroNome,erroVolume,isLoading,isSuccess,isCamposValidos);
 
 @override
 String toString() {
-  return 'AdicionarBarrilState(nome: $nome, volume: $volume, isDescartavel: $isDescartavel, erroGeral: $erroGeral, erroNome: $erroNome, erroVolume: $erroVolume, isLoading: $isLoading, isSucess: $isSucess, isCamposValidos: $isCamposValidos)';
+  return 'AdicionarBarrilState(nome: $nome, volume: $volume, isDescartavel: $isDescartavel, erroGeral: $erroGeral, erroNome: $erroNome, erroVolume: $erroVolume, isLoading: $isLoading, isSuccess: $isSuccess, isCamposValidos: $isCamposValidos)';
 }
 
 
@@ -251,7 +251,7 @@ abstract mixin class _$AdicionarBarrilStateCopyWith<$Res> implements $AdicionarB
   factory _$AdicionarBarrilStateCopyWith(_AdicionarBarrilState value, $Res Function(_AdicionarBarrilState) _then) = __$AdicionarBarrilStateCopyWithImpl;
 @override @useResult
 $Res call({
- String nome, String volume, bool isDescartavel, String? erroGeral, String? erroNome, String? erroVolume, bool isLoading, bool isSucess, bool isCamposValidos
+ String nome, String volume, bool isDescartavel, String? erroGeral, String? erroNome, String? erroVolume, bool isLoading, bool isSuccess, bool isCamposValidos
 });
 
 
@@ -268,7 +268,7 @@ class __$AdicionarBarrilStateCopyWithImpl<$Res>
 
 /// Create a copy of AdicionarBarrilState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? nome = null,Object? volume = null,Object? isDescartavel = null,Object? erroGeral = freezed,Object? erroNome = freezed,Object? erroVolume = freezed,Object? isLoading = null,Object? isSucess = null,Object? isCamposValidos = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? nome = null,Object? volume = null,Object? isDescartavel = null,Object? erroGeral = freezed,Object? erroNome = freezed,Object? erroVolume = freezed,Object? isLoading = null,Object? isSuccess = null,Object? isCamposValidos = null,}) {
   return _then(_AdicionarBarrilState(
 nome: null == nome ? _self.nome : nome // ignore: cast_nullable_to_non_nullable
 as String,volume: null == volume ? _self.volume : volume // ignore: cast_nullable_to_non_nullable
@@ -277,7 +277,7 @@ as bool,erroGeral: freezed == erroGeral ? _self.erroGeral : erroGeral // ignore:
 as String?,erroNome: freezed == erroNome ? _self.erroNome : erroNome // ignore: cast_nullable_to_non_nullable
 as String?,erroVolume: freezed == erroVolume ? _self.erroVolume : erroVolume // ignore: cast_nullable_to_non_nullable
 as String?,isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
-as bool,isSucess: null == isSucess ? _self.isSucess : isSucess // ignore: cast_nullable_to_non_nullable
+as bool,isSuccess: null == isSuccess ? _self.isSuccess : isSuccess // ignore: cast_nullable_to_non_nullable
 as bool,isCamposValidos: null == isCamposValidos ? _self.isCamposValidos : isCamposValidos // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
