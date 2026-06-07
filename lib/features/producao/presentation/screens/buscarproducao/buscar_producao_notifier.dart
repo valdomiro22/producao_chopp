@@ -1,30 +1,36 @@
-import 'package:flutter_riverpod/legacy.dart';
+import 'package:producao_chopp/features/producao/providers/producao_providers.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../../../../common/state/UiState.dart';
 import '../../../domain/entities/producao_detalhada.dart';
-import '../../../domain/usecases/get_producao_detalhada_use_case.dart';
 
-class BuscarProducaoNotifier extends StateNotifier<UiState<ProducaoDetalhada>> {
-  final GetProducaoDetalhadaUseCase _getOneProducaoDetalhada;
-  final String producaoId;
+part 'buscar_producao_notifier.g.dart';
 
-  BuscarProducaoNotifier(this._getOneProducaoDetalhada, {required this.producaoId})
-    : super(const Loading()) {
-    getProducao();
+@riverpod
+class BuscarProducaoDatalhadaNotifier extends _$BuscarProducaoDatalhadaNotifier {
+  @override
+  Future<ProducaoDetalhada> build(String producaoId) {
+    return _buscarProducao(producaoId);
   }
 
-  Future<void> getProducao() async {
-    state = const Loading();
+  Future<ProducaoDetalhada> _buscarProducao(String producaoId) async {
+    final useCase = ref.read(getProducaoDetalhadaProvider);
+    final result = await useCase(producaoId);
 
-    final result = await _getOneProducaoDetalhada(producaoId);
-
-    result.fold(
+    return result.fold(
       (failure) {
-        state = Error(failure.message);
+        throw Exception(failure.message);
       },
       (producao) {
-        state = Success(producao);
+        return producao;
       },
     );
+  }
+
+  Future<void> recarregar() async {
+    state = const AsyncLoading();
+
+    state = await AsyncValue.guard(() async {
+      return _buscarProducao(producaoId);
+    });
   }
 }

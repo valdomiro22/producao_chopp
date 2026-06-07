@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:producao_chopp/features/barril/presentation/screens/listabarris/lista_barris_screen.dart';
-import 'package:producao_chopp/home_screen.dart';
+
 import '../features/barril/presentation/screens/adicionarbarril/adicionar_barril_screen.dart';
 import '../features/barril/presentation/screens/editarbarril/editar_barril_screen.dart';
 import '../features/grade/presentation/screens/adicionargrade/adicionar_grade_screen.dart';
 import '../features/grade/presentation/screens/editargrade/editar_grade_screen.dart';
 import '../features/grade/presentation/screens/listagrades/lista_grades_screen.dart';
+import '../features/home/screens/home_screen.dart';
 import '../features/producao/presentation/screens/adicionarproducao/adicionar_producao_screen.dart';
 import '../features/producao/presentation/screens/editarproducao/editar_producao_screen.dart';
 import '../features/producao/presentation/screens/listaproducoes/lista_producoes_screen.dart';
@@ -16,21 +17,17 @@ import '../features/produto/presentation/screens/listaprodutos/lista_produtos_sc
 import 'app_routes_names.dart';
 
 class AppRoutes {
-
-  // Home
   static final List<RouteBase> routes = [
+    // Home
+    GoRoute(
+      path: '${AppRoutesNames.home}/:producaoId',
+      builder: (context, state) {
+        final producaoId = state.pathParameters['producaoId']!;
 
-    GoRoute(path: AppRoutesNames.home, builder: (context, state) => HomeScreen()),
+        return HomeScreen(producaoId: producaoId);
+      },
+    ),
 
-    // GoRoute(
-    //   path: '${AppRoutesNames.home}/:producaoId',
-    //   builder: (context, state) {
-    //     final producaoId = state.pathParameters['producaoId']!;
-    //
-    //     return HomeScreen(producaoId: producaoId);
-    //   },
-    // ),
-    //
     // Barris
     GoRoute(path: AppRoutesNames.listaBarris, builder: (context, state) => ListaBarrisScreen()),
 
@@ -109,7 +106,6 @@ class AppRoutes {
         return EditarProducaoScreen(producaoId: producaoId);
       },
     ),
-
   ];
 
   static Widget _notFoundScreen(String message) {
