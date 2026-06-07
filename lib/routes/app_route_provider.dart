@@ -6,7 +6,7 @@ import 'app_routes_names.dart';
 
 final appRouteProvider = Provider<GoRouter>((ref) {
   return GoRouter(
-    initialLocation: AppRoutesNames.listaGrades,
+    initialLocation: AppRoutesNames.home,
     routes: AppRoutes.routes
   );
 });

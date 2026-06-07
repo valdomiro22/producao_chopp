@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:producao_chopp/features/barril/presentation/screens/listabarris/lista_barris_screen.dart';
+import 'package:producao_chopp/home_screen.dart';
 import 'app_routes_names.dart';
 
 class AppRoutes {
 
   // Home
   static final List<RouteBase> routes = [
+
+    GoRoute(path: AppRoutesNames.home, builder: (context, state) => HomeScreen()),
 
     // GoRoute(
     //   path: '${AppRoutesNames.home}/:producaoId',
@@ -15,9 +20,9 @@ class AppRoutes {
     //   },
     // ),
     //
-    // // Barris
-    // GoRoute(path: AppRoutesNames.listaBarris, builder: (context, state) => ListaBarrisScreen()),
-    //
+    // Barris
+    GoRoute(path: AppRoutesNames.listaBarris, builder: (context, state) => ListaBarrisScreen()),
+
     // GoRoute(
     //   path: AppRoutesNames.adicionarBarril,
     //   builder: (context, state) => AdicionarBarrilScreen(),
