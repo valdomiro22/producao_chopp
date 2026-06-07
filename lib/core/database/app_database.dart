@@ -1,4 +1,5 @@
 import 'package:path/path.dart';
+import 'package:producao_chopp/features/anotacoes/data/database/tabela_anotacao.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../../features/barril/data/database/tabela_barril.dart';
@@ -33,6 +34,6 @@ class AppDatabase {
     await db.execute(TabelaProduto.createTable);
     await db.execute(TabelaGrade.createTable);
     await db.execute(TabelaProducao.createTable);
-    // await db.execute(TabelaMovimentacao.createTable);
+    await db.execute(TabelaAnotacao.createTable);
   }
 }
