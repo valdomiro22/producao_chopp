@@ -5,6 +5,7 @@ import 'package:producao_chopp/home_screen.dart';
 import '../features/barril/presentation/screens/adicionarbarril/adicionar_barril_screen.dart';
 import '../features/barril/presentation/screens/editarbarril/editar_barril_screen.dart';
 import '../features/produto/presentation/screens/adicionarproduto/adicionar_produto_screen.dart';
+import '../features/produto/presentation/screens/editarproduto/editar_produto_screen.dart';
 import '../features/produto/presentation/screens/listaprodutos/lista_produtos_screen.dart';
 import 'app_routes_names.dart';
 
@@ -49,15 +50,15 @@ class AppRoutes {
       builder: (context, state) => AdicionarProdutoScreen(),
     ),
 
-    // GoRoute(
-    //   path: '${AppRoutesNames.editarProduto}/:produtoId',
-    //   builder: (context, state) {
-    //     final produtoId = state.pathParameters['produtoId']!;
-    //
-    //     return EditarProdutoScreen(produtoId: produtoId);
-    //   },
-    // ),
-    //
+    GoRoute(
+      path: '${AppRoutesNames.editarProduto}/:produtoId',
+      builder: (context, state) {
+        final produtoId = state.pathParameters['produtoId']!;
+
+        return EditarProdutoScreen(produtoId: produtoId);
+      },
+    ),
+
     // // Grade
     // GoRoute(path: AppRoutesNames.listaGrades, builder: (context, state) => ListaGradesScreen()),
     //

@@ -7,14 +7,10 @@ import 'editar_barril_notifier.dart';
 class EditarBarrilScreen extends ConsumerStatefulWidget {
   final String barrilId;
 
-  const EditarBarrilScreen({
-    super.key,
-    required this.barrilId,
-  });
+  const EditarBarrilScreen({super.key, required this.barrilId});
 
   @override
-  ConsumerState<EditarBarrilScreen> createState() =>
-      _EditarBarrilScreenState();
+  ConsumerState<EditarBarrilScreen> createState() => _EditarBarrilScreenState();
 }
 
 class _EditarBarrilScreenState extends ConsumerState<EditarBarrilScreen> {
@@ -58,9 +54,7 @@ class _EditarBarrilScreenState extends ConsumerState<EditarBarrilScreen> {
     final notifier = ref.read(editarBarrilProvider.notifier);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Editar Barril'),
-      ),
+      appBar: AppBar(title: const Text('Editar Barril')),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -76,9 +70,7 @@ class _EditarBarrilScreenState extends ConsumerState<EditarBarrilScreen> {
                   labelText: 'Nome',
                   hintText: 'Ex: 30 litros',
                   errorText: state.erroNome,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
                 ),
                 onChanged: notifier.onNomeChanged,
               ),
@@ -92,9 +84,7 @@ class _EditarBarrilScreenState extends ConsumerState<EditarBarrilScreen> {
                   labelText: 'Volume',
                   hintText: 'Ex: 30',
                   errorText: state.erroVolume,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
                 ),
                 onChanged: notifier.onVolumeChanged,
               ),
@@ -104,39 +94,26 @@ class _EditarBarrilScreenState extends ConsumerState<EditarBarrilScreen> {
               SwitchListTile(
                 value: state.isDescartavel,
                 onChanged: notifier.onDescartavelChanged,
-                title: Text(
-                  state.isDescartavel ? 'Descartável' : 'Retornável',
-                ),
+                title: Text(state.isDescartavel ? 'Descartável' : 'Retornável'),
               ),
 
               if (state.erroGeral != null) ...[
                 const SizedBox(height: 8),
-                Text(
-                  state.erroGeral!,
-                  style: const TextStyle(
-                    color: Colors.red,
-                    fontSize: 12,
-                  ),
-                ),
+                Text(state.erroGeral!, style: const TextStyle(color: Colors.red, fontSize: 12)),
               ],
 
               const SizedBox(height: 16),
 
               ElevatedButton(
                 onPressed: state.isLoading ? null : notifier.editar,
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                ),
+                style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 10)),
                 child: state.isLoading
                     ? const SizedBox(
-                  height: 22,
-                  width: 22,
-                  child: CircularProgressIndicator(strokeWidth: 2),
-                )
-                    : const Text(
-                  'Salvar',
-                  style: TextStyle(fontSize: 18),
-                ),
+                        height: 22,
+                        width: 22,
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      )
+                    : const Text('Salvar', style: TextStyle(fontSize: 18)),
               ),
             ],
           ),
