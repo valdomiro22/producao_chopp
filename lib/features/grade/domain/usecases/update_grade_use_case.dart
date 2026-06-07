@@ -17,7 +17,7 @@ class UpdateGradeUseCase {
 
     final editadoEm = DateTime.now();
 
-    final produto = GradeEntity(
+    final grade = GradeEntity(
       id: params.id,
       numero: numero,
       data: params.data,
@@ -28,7 +28,7 @@ class UpdateGradeUseCase {
       volumeHlNecessario: params.volumeHlNecessario,
     );
 
-    return await _repository.update(produto);
+    return await _repository.update(grade);
   }
 }
 

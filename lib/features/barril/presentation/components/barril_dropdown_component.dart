@@ -1,42 +1,41 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/entities/produto_entity.dart';
+import '../../domain/entities/barril_entity.dart';
 
-class ProdutoDropdownComponent extends StatelessWidget {
-  final List<ProdutoEntity> produtos;
-  final String? produtoIdSelecionado;
-  final void Function(String? produtoId) onChanged;
+class BarrilDropdownComponent extends StatelessWidget {
+  final List<BarrilEntity> barris;
+  final String? barrilIdSelecionado;
+  final void Function(String? barrilId) onChanged;
 
-  const ProdutoDropdownComponent({
+  const BarrilDropdownComponent({
     super.key,
-    required this.produtos,
-    required this.produtoIdSelecionado,
+    required this.barris,
+    required this.barrilIdSelecionado,
     required this.onChanged,
   });
 
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
+      padding: const EdgeInsets.symmetric(horizontal: 4),
       dropdownColor: Colors.brown[200],
       isExpanded: true,
-      padding: const EdgeInsets.symmetric(horizontal: 4),
       borderRadius: BorderRadius.circular(10),
       hint: Text(
-        'Produto',
+        'Barril',
         style: TextStyle(color: Theme.of(context).colorScheme.primary),
       ),
       isDense: false,
 
-      // Agora o value é o id do produto
-      value: produtoIdSelecionado?.isEmpty == true ? null : produtoIdSelecionado,
+      value: barrilIdSelecionado?.isEmpty == true ? null : barrilIdSelecionado,
 
-      items: produtos.map((produto) {
+      items: barris.map((barril) {
         return DropdownMenuItem<String>(
-          value: produto.id,
+          value: barril.id,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4),
             child: Text(
-              produto.nome,
+              barril.nome,
               style: const TextStyle(color: Colors.black),
             ),
           ),

@@ -7,6 +7,9 @@ import '../features/barril/presentation/screens/editarbarril/editar_barril_scree
 import '../features/grade/presentation/screens/adicionargrade/adicionar_grade_screen.dart';
 import '../features/grade/presentation/screens/editargrade/editar_grade_screen.dart';
 import '../features/grade/presentation/screens/listagrades/lista_grades_screen.dart';
+import '../features/producao/presentation/screens/adicionarproducao/adicionar_producao_screen.dart';
+import '../features/producao/presentation/screens/editarproducao/editar_producao_screen.dart';
+import '../features/producao/presentation/screens/listaproducoes/lista_producoes_screen.dart';
 import '../features/produto/presentation/screens/adicionarproduto/adicionar_produto_screen.dart';
 import '../features/produto/presentation/screens/editarproduto/editar_produto_screen.dart';
 import '../features/produto/presentation/screens/listaprodutos/lista_produtos_screen.dart';
@@ -80,32 +83,32 @@ class AppRoutes {
     ),
 
     // // Produção
-    // GoRoute(
-    //   path: '${AppRoutesNames.listaProducoes}/:gradeId',
-    //   builder: (context, state) {
-    //     final gradeId = state.pathParameters['gradeId']!;
-    //
-    //     return ListaProducoesScreen(gradeId: gradeId);
-    //   },
-    // ),
-    //
-    // GoRoute(
-    //   path: '${AppRoutesNames.adicionarProducao}/:gradeId',
-    //   builder: (context, state) {
-    //     final gradeId = state.pathParameters['gradeId']!;
-    //
-    //     return AdicionarProducaoScreen(gradeId: gradeId);
-    //   },
-    // ),
-    //
-    // GoRoute(
-    //   path: '${AppRoutesNames.editarProducao}/:producaoId',
-    //   builder: (context, state) {
-    //     final producaoId = state.pathParameters['producaoId']!;
-    //
-    //     return EditarProducaoScreen(producaoId: producaoId);
-    //   },
-    // ),
+    GoRoute(
+      path: '${AppRoutesNames.listaProducoes}/:gradeId',
+      builder: (context, state) {
+        final gradeId = state.pathParameters['gradeId']!;
+
+        return ListaProducoesScreen(gradeId: gradeId);
+      },
+    ),
+
+    GoRoute(
+      path: '${AppRoutesNames.adicionarProducao}/:gradeId',
+      builder: (context, state) {
+        final gradeId = state.pathParameters['gradeId']!;
+
+        return AdicionarProducaoScreen(gradeId: gradeId);
+      },
+    ),
+
+    GoRoute(
+      path: '${AppRoutesNames.editarProducao}/:producaoId',
+      builder: (context, state) {
+        final producaoId = state.pathParameters['producaoId']!;
+
+        return EditarProducaoScreen(producaoId: producaoId);
+      },
+    ),
 
   ];
 
