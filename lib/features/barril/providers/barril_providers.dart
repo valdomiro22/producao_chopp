@@ -33,7 +33,6 @@ BarrilRepository barrilRepository(Ref ref) {
 }
 
 // UseCases --------------------------------------------------------------------
-
 @riverpod
 InsertBarrilUseCase insertBarrilUseCase(Ref ref) {
   final repository = ref.watch(barrilRepositoryProvider);

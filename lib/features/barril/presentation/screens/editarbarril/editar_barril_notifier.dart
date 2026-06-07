@@ -1,17 +1,44 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:producao_chopp/features/barril/domain/usecases/insert_barril_use_case.dart';
-import 'package:producao_chopp/features/barril/presentation/screens/listabarris/lista_barris_notifier.dart';
+import 'package:producao_chopp/features/barril/domain/usecases/update_barril_use_case.dart';
 import 'package:producao_chopp/features/barril/providers/barril_providers.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'adicionar_barril_notifier.freezed.dart';
+import '../../../domain/entities/barril_entity.dart';
+import '../listabarris/lista_barris_notifier.dart';
 
-part 'adicionar_barril_notifier.g.dart';
+part 'editar_barril_notifier.freezed.dart';
+
+part 'editar_barril_notifier.g.dart';
 
 @riverpod
-class AdicionarBarrilNotifier extends _$AdicionarBarrilNotifier {
+class EditarBarrilNotifier extends _$EditarBarrilNotifier {
+
   @override
-  AdicionarBarrilState build() => AdicionarBarrilState.inicial();
+  EditarBarrilState build() => EditarBarrilState.inicial();
+
+  Future<void> buscarBarril(String barrilId) async {
+    final useCase = ref.read(getOneBarrilUseCaseProvider);
+
+    state = state.copyWith(isLoading: true, erroGeral: null, isSucess: false);
+
+    final result = await useCase(barrilId);
+    result.fold(
+      (failure) {
+        state = state.copyWith(isLoading: false, erroGeral: failure.message);
+      },
+      (barril) {
+        state = state.copyWith(
+          id: barril.id,
+          nome: barril.nome,
+          volume: barril.volume.toString(),
+          isDescartavel: barril.descartavel,
+          criadoEm: barril.criadoEm,
+          isLoading: false,
+          erroGeral: null,
+        );
+      },
+    );
+  }
 
   void onNomeChanged(String value) {
     state = state.copyWith(nome: value, erroNome: null, erroGeral: null);
@@ -19,7 +46,6 @@ class AdicionarBarrilNotifier extends _$AdicionarBarrilNotifier {
 
   void onVolumeChanged(String value) {
     final filtered = value.replaceAll(RegExp(r'[^0-9]'), '');
-
     state = state.copyWith(volume: filtered, erroVolume: null, erroGeral: null);
   }
 
@@ -27,11 +53,10 @@ class AdicionarBarrilNotifier extends _$AdicionarBarrilNotifier {
     state = state.copyWith(isDescartavel: value);
   }
 
-  Future<void> adicionar() async {
+  Future<void> editar() async {
     if (!_isCamposValidos()) return;
 
     final volumeInt = int.tryParse(state.volume.trim());
-
     if (volumeInt == null || volumeInt <= 0) {
       state = state.copyWith(erroVolume: 'Digite um volume válido');
       return;
@@ -39,13 +64,15 @@ class AdicionarBarrilNotifier extends _$AdicionarBarrilNotifier {
 
     state = state.copyWith(isLoading: true, erroGeral: null, isSucess: false);
 
-    final params = InsertBarrilParams(
+    final params = UpdateBarrilParams(
       nome: state.nome.trim(),
       volume: volumeInt,
       descartavel: state.isDescartavel,
+      id: state.id,
+      criadoEm: state.criadoEm ?? DateTime.now(),
     );
 
-    final useCase = ref.read(insertBarrilUseCaseProvider);
+    final useCase = ref.read(updateBarrilUseCaseProvider);
     final result = await useCase(params);
 
     result.fold(
@@ -79,22 +106,24 @@ class AdicionarBarrilNotifier extends _$AdicionarBarrilNotifier {
     return validos;
   }
 
-  void limpar() => state = AdicionarBarrilState.inicial();
+  void limpar() => state = EditarBarrilState.inicial();
 }
 
 @freezed
-sealed class AdicionarBarrilState with _$AdicionarBarrilState {
-  const factory AdicionarBarrilState({
+sealed class EditarBarrilState with _$EditarBarrilState {
+  const factory EditarBarrilState({
+    @Default('') String id,
     @Default('') String nome,
     @Default('') String volume,
     @Default(false) bool isDescartavel,
+    DateTime? criadoEm,
     String? erroGeral,
     String? erroNome,
     String? erroVolume,
     @Default(false) bool isLoading,
     @Default(false) bool isSucess,
     @Default(false) bool isCamposValidos,
-  }) = _AdicionarBarrilState;
+  }) = _EditarBarrilState;
 
-  factory AdicionarBarrilState.inicial() => const AdicionarBarrilState();
+  factory EditarBarrilState.inicial() => const EditarBarrilState();
 }
