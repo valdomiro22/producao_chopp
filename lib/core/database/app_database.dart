@@ -26,7 +26,6 @@ class AppDatabase {
   }
 
   Future<void> _onCreate(Database db, int version) async {
-    print('Criando tabela barril');
     await db.execute(TabelaBarril.createTable);
     // await db.execute(TabelaProduto.createTable);
     // await db.execute(TabelaGrade.createTable);

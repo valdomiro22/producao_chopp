@@ -1,7 +1,10 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'app_database.dart';
 
-final appDatabaseProvider = Provider<AppDatabase>((ref) {
+part 'app_database_provider.g.dart';
+
+@riverpod
+AppDatabase appDatabase(Ref ref) {
   return AppDatabase.instance;
-});
+}

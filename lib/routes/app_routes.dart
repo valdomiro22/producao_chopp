@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:producao_chopp/features/barril/presentation/screens/listabarris/lista_barris_screen.dart';
 import 'package:producao_chopp/home_screen.dart';
+import '../features/barril/presentation/screens/editarbarril/adicionar_barril_screen.dart';
 import 'app_routes_names.dart';
 
 class AppRoutes {
@@ -23,11 +24,11 @@ class AppRoutes {
     // Barris
     GoRoute(path: AppRoutesNames.listaBarris, builder: (context, state) => ListaBarrisScreen()),
 
-    // GoRoute(
-    //   path: AppRoutesNames.adicionarBarril,
-    //   builder: (context, state) => AdicionarBarrilScreen(),
-    // ),
-    //
+    GoRoute(
+      path: AppRoutesNames.adicionarBarril,
+      builder: (context, state) => AdicionarBarrilScreen(),
+    ),
+
     // GoRoute(
     //   path: '${AppRoutesNames.editarBarril}/:barrilId',
     //   builder: (context, state) {
